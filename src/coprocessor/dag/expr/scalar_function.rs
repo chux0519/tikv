@@ -161,6 +161,7 @@ impl ScalarFunc {
             | ScalarFuncSig::CastJsonAsDuration
             | ScalarFuncSig::CastJsonAsJson
             | ScalarFuncSig::Date
+            | ScalarFuncSig::Month
             | ScalarFuncSig::UnaryNot
             | ScalarFuncSig::UnaryMinusInt
             | ScalarFuncSig::UnaryMinusReal
@@ -374,7 +375,6 @@ impl ScalarFunc {
             | ScalarFuncSig::MD5
             | ScalarFuncSig::MicroSecond
             | ScalarFuncSig::Minute
-            | ScalarFuncSig::Month
             | ScalarFuncSig::MonthName
             | ScalarFuncSig::NowWithArg
             | ScalarFuncSig::NowWithoutArg
@@ -730,6 +730,8 @@ dispatch_call! {
         IntDivideDecimal => int_divide_decimal,
         ModInt => mod_int,
 
+        Month => month,
+
         LogicalAnd => logical_and,
         LogicalOr => logical_or,
         LogicalXor => logical_xor,
@@ -1071,6 +1073,7 @@ mod test {
                     ScalarFuncSig::CastJsonAsDuration,
                     ScalarFuncSig::CastJsonAsJson,
                     ScalarFuncSig::Date,
+                    ScalarFuncSig::Month,
                     ScalarFuncSig::UnaryNot,
                     ScalarFuncSig::UnaryMinusInt,
                     ScalarFuncSig::UnaryMinusReal,
@@ -1327,7 +1330,6 @@ mod test {
             ScalarFuncSig::MD5,
             ScalarFuncSig::MicroSecond,
             ScalarFuncSig::Minute,
-            ScalarFuncSig::Month,
             ScalarFuncSig::MonthName,
             ScalarFuncSig::NowWithArg,
             ScalarFuncSig::NowWithoutArg,
